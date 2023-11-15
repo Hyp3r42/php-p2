@@ -1,0 +1,17 @@
+css
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.closed, .open {
+    font-size: 10rem;
+    cursor: pointer;
+}
+
+.active {
+    display: none;
+}
