@@ -7,3 +7,4 @@ function showModal(){
 function removeModal() {
 modal.style.display = "none"
 }
+showModal
