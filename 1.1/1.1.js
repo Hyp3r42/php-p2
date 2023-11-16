@@ -1,10 +1,8 @@
-var modal = document.getElementById("cookiewall");
+const acceptButton = document.getElementById('accept-button');
+const cookieOverlay = document.getElementById('cookie-overlay');
+const content = document.getElementById('content');
 
-function showModal(){
-    modal.style.display = "block";
-}
-
-function removeModal() {
-modal.style.display = "none"
-}
-showModal
+acceptButton.addEventListener('click', function() {
+  cookieOverlay.style.display = 'none';
+  content.style.display = 'block';
+});

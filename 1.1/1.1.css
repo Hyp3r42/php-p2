@@ -1,23 +1,19 @@
-.venster{
-    display: none;
+#cookie-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    z-index: 1;
-    padding-top: 30vh;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-
-    background-color: aliceblue;
-}
-
-.cookiecontent {
-    background-color: #ffffff;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid black;
-    width: 70%;
-    opacity: 0.9;
-
-}
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+  }
+  #cookie-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
