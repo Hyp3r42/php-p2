@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> supermarkt Producten</title>
+</head>
+<body>
+<p id="productenContainer"></p>
+
+<script>
+Var supermarktProducten = [
+    { naam:  'Playstation', prijs: 500},
+    { naam:  'Xbox',        prijs: 450},
+    { naam:  'Pc',          prijs: 2000}, 
+];
+
+var productenContainer = document.getElementbyid('productenContainer');
+
+for (var i = 0; i < supermarktProducten.lenght; i++) {
+    var product = supermarktProducten[i];
+    var productInfo = 'Productnaam: ' + product.naam + ', prijs: €' + product.prijs.toFixed(2);
+   
+    productenContainer.innerHTML += productInfo + 'br';
+
+}
+
+</script>
+
+</body>
+</html>
