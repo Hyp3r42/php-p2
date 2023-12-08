@@ -21,21 +21,6 @@ function cellClick() {
         this.textContent = currentPlayer;
         checkWinner();
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        if (currentPlayer === 'O') {
-            playBotMove();
-        }
-    }
-}
-
-function playBotMove() {
-    const emptyCells = cells.filter(cell => cell.textContent === '');
-    if (emptyCells.length > 0) {
-        const randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-        setTimeout(() => {
-            randomCell.textContent = currentPlayer;
-            checkWinner();
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        }, 500);
     }
 }
 
