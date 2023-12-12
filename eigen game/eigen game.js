@@ -14,13 +14,13 @@ for (let i = 0; i < 3; i++) {
     }
 }
 
-let currentPlayer = 'X';
+let currentPlayer = '🌙';
 
 function cellClick() {
     if (this.textContent === '') {
         this.textContent = currentPlayer;
         checkWinner();
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        currentPlayer = currentPlayer === '🌙' ? '.⭐' : '🌙';
     }
 }
 
@@ -50,5 +50,5 @@ function resetBoard() {
     cells.forEach(cell => {
         cell.textContent = '';
     });
-    currentPlayer = 'X';
+    currentPlayer = '🌙';
 }
