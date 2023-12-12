@@ -4,13 +4,16 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-image: url('hvrem1knuzs11.jpg'); 
+    background-size: cover; /* Zorg ervoor dat de afbeelding het hele scherm bedekt */
 }
-
 #board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-gap: 5px;
+    background-color: rgba(0, 0, 0, 0.446); /* Achtergrondkleur voor het spelbord */
+    padding: 20px; /* Voeg wat padding toe om het spelbord te scheiden van de rand van de achtergrond */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Voeg een subtiele schaduw toe aan het spelbord */
 }
 
 .cell {
@@ -28,7 +31,9 @@ body {
     background-color: #ddd;
 }
 
-.flag {
-    width: 80%;
-    height: 80%;
-}
+/* dit zijn de 4 game componenten
+1 Graphics en Animatie:
+2 Input Handling:
+3 Game Logic en AI:
+4 Scripting en Programmeerlogica:
+
