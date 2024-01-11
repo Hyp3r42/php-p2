@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #game-container {
+            text-align: center;
+        }
+    </style>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Rock Paper Scissors</h1>
+        <p>Choose your move:</p>
+        <button onclick="play('rock')">Rock</button>
+        <button onclick="play('paper')">Paper</button>
+        <button onclick="play('scissors')">Scissors</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function play(playerChoice) {
+            const choices = ['rock', 'paper', 'scissors'];
+            const aiChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            const result = getResult(playerChoice, aiChoice);
+
+            displayResult(playerChoice, aiChoice, result);
+        }
+
+        function getResult(playerChoice, aiChoice) {
+            if (playerChoice === aiChoice) {
+                return 'It\'s a draw!';
+            }
+
+            if (
+                (playerChoice === 'rock' && aiChoice === 'scissors') ||
+                (playerChoice === 'paper' && aiChoice === 'rock') ||
+                (playerChoice === 'scissors' && aiChoice === 'paper')
+            ) {
+                return 'You win!';
+            }
+
+            return 'You lose!';
+        }
+
+        function displayResult(playerChoice, aiChoice, result) {
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `
+                <p>Your choice: ${playerChoice}</p>
+                <p>AI's choice: ${aiChoice}</p>
+                <p>${result}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

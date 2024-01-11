@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekenen in canvas</title>
+</head>
+
+    <style>
+    body{
+    margin: 0;
+    overflow: hidden;
+    }
+</style>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // Wachten tot het venster en alle inhoud geladen zijn
+        window.addEventListener("load", function() {
+            // Canvas en context ophalen
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            // Variabele om bij te houden of er wordt getekend
+            let painting = false;
+            // Canvas grootte instellen op de grootte van het venster
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+            // Functie om te starten met tekenen bij het vastpakken van de muisknop
+            function startPosition(e) {
+                painting = true;
+                draw(e);
+                }
+              // Functie om te stoppen met tekenen bij het loslaten van de muisknop
+                function finishedPosition(){
+                    painting = false;
+                    ctx.beginPath(); // Een nieuw pad starten bij het loslaten van de muisknop
+                }
+                  // FUnctie om te tekenen(wordt aangeroepen bij bewegingen van de muis)
+                    function draw(e) {
+                        if (!painting) return;
+                        // Lijneigenschappen instellen
+                        ctx.lineWidth = 10;
+                        ctx.lineCap = "round";
+                        // Lijn tekenen vanaf het vorige punt naar het huidige punt van de muis
+                        ctx.lineTo(e.clientX, e.clientY);
+                 
+                // Lijn daadwerkelijk tekenen op het canvas        
+                ctx.stroke();
+                // Een nieuw pad beginnen vanaf het huidige punt voor een eventuele volgende lijn
+                ctx.beginPath();
+                // Naar het huidige punt van dde muis ewegen zonder daadwerkelijk te tekenen
+                ctx.moveTO(e.clientX, e.clientY);
+            }
+            // Event listenders toevoegen voor muisinteractie op het canvas
+            canvas.addEventListener("mousedown", startPosition); // Muisknop ingedrukt houden
+            canvas.addEventListener("mouseup", finishedPosition); // Muisknop loslaten
+            canvas.addEventListener("moudemove", draw); // Muis bewegen
+        
+        });
+
+    </script>
+</body>
+</html>
