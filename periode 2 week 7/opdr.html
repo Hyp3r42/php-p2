@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weer App</title>
+    <link rel="stylesheet" href="opdr.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weer App</h1>
+        <form id="weer-formulier">
+            <input type="text" id="locatie" placeholder="Voer plaatsnaam in...">
+            <button type="submit">Weer Ophalen</button>
+        </form>
+        <div id="weer-gegevens" class="weer-gegevens">
+            <p><strong>Temperatuur:</strong> <span id="temperatuur"></span> °C</p>
+            <p><strong>Luchtvochtigheid:</strong> <span id="luchtvochtigheid"></span> %</p>
+            <p><strong>Omschrijving:</strong> <span id="omschrijving"></span></p>
+            <p><strong>Wind:</strong> <span id="windsnelheid"></span> m/s</p>
+            <p><strong>Zonsopgang:</strong> <span id="zonsopgang"></span></p>
+            <p><strong>Zonsondergang:</strong> <span id="zonsondergang"></span></p>
+        </div>
+        <div id="foutmelding" class="foutmelding"></div>
+        <div id="weer-icoon" class="weer-icoon"></div>
+    </div>
+    <script src="opdr.js"></script>
+</body>
+</html>
