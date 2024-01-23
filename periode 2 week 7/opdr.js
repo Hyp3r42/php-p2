@@ -53,7 +53,7 @@ async function haalWeerDataOp(locatie) {
 
 function toonWeerGegevens(gegevens) {
     weerGegevensContainer.innerHTML = `
-        <p><strong>Temperatuur:</strong> <span id="temperatuur">${gegevens.main.temp}</span> Â°C</p>
+        <p><strong>Temperatuur:</strong> <span id="temperatuur">${gegevens.main.temp}</span>°C</p>
         <p><strong>Luchtvochtigheid:</strong> <span id="luchtvochtigheid">${gegevens.main.humidity}</span> %</p>
         <p><strong>Omschrijving:</strong> <span id="omschrijving">${gegevens.weather[0].description}</span></p>
         <p><strong>Wind:</strong> <span id="windsnelheid">${gegevens.wind.speed}</span> m/s</p>
