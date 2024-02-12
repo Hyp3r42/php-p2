@@ -1,5 +1,5 @@
 <?php
-// Auteur: Talha
+// Auteur: Talha Kucuker
 // Functie: selecteer data
 
 // connect database

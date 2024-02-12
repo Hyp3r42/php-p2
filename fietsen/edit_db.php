@@ -1,6 +1,6 @@
 <?php
 
-// Auteur: Talha kucuker
+// Auteur: Talha Kucuker
 // Functie: data fiets update in database
 
 // Test of er data gepost is 

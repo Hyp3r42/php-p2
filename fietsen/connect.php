@@ -1,5 +1,5 @@
 <?php
-// Auteur: Talha
+// Auteur: Talha Kucuker
 // Fucntie: connectie maken met de eerste database fietsenmaker
 $servername = "localhost";
 $username = "root";
