@@ -36,19 +36,15 @@
 
 <form action="edit_db.php" method="post">
 
-    <input type="hidden" id="merk" name="id" required value="<?php echo $result['id']; ?>"><br>
+    <input type="hidden" id="merk" name="id" required value="<?php echo $result['ID']; ?>"><br>
     <label for="merk">Merk:</label>
     <input type="text" id="merk" name="merk" required value="<?php echo $result['merk']; ?>"><br>
 
     <label for="type">Type:</label>
-    <input type="text" id="type" name="type" required value= "<?= $result['type'] ?>"><br>
+    <input type="text" id="type" name="type" required value= "<?php echo $result['type']; ?>"><br>
 
     <label for="prijs">Prijs:</label>
-    <input type="number" id="prijs" name="prijs" required value= "<?= $result['prijs'] ?>"><br>
-
-    <label for="foto">Foto (URL):</label>
-    <input type="text" id="foto" name="foto" required value= "<?= $result['Foto'] ?>"><br>
-
+    <input type="number" id="prijs" name="prijs" required value= "<?php echo $result['prijs'];?>"><br>
     <input type="submit" value="Voeg Toe">
 </form>
 
