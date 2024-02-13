@@ -1,16 +1,27 @@
 <?php
-// Auteur: Talha kucuker
+// Auteur: Talha Kucuker
 // Functie: selecteer data
 
-// connect database
+// Connect database
 include "connect.php";
 
 // Maak een query
 $sql = "SELECT * FROM fietsen";
 // Prepare
 $stmt = $conn->prepare($sql);
+
+// Foutafhandeling toevoegen
+if (!$stmt) {
+    echo "Fout bij het voorbereiden van de query: " . $conn->error;
+    exit();
+}
+
 // Uitvoeren
-$stmt->execute();
+if (!$stmt->execute()) {
+    echo "Fout bij het uitvoeren van de query: " . $stmt->errorInfo()[2];
+    exit();
+}
+
 // Ophalen alle data
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -34,9 +45,8 @@ if (!empty($result)) {
         echo "<td>" . $row['merk'] . "</td> ";
         echo "<td>" . $row['type'] . "</td> ";
         echo "<td>" . $row['prijs'] . "</td>";
-        echo "<td><a href='edit.php?id= " . $row['ID'] . "'>" . "Wijzig</a></td>";
-        echo "<td><a href='delete.php?id= " . $row['ID'] . "'>" . "Verwijder</a></td>";
-        echo "</tr>";
+        echo "<td><a href='edit.php?id=" . $row['id'] . "'>Wijzig</a></td>";
+echo "</tr>";
     }
 } else {
     echo "<tr><td colspan='4'>Geen resultaten gevonden</td></tr>";

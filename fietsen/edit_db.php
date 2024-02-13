@@ -1,43 +1,40 @@
-<?php
+<?php 
+// auteur: Talha Kucuker
+//Functie: data fiets update in database
 
-// Auteur: Talha Kucuker
-// Functie: data fiets update in database
+// test of er data is gepost
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    print_r($_POST);
 
-// Test of er data gepost is 
+    //doe update in database
+    //UPDATE fietsen SET prijs = '699.99' 
+    //WHERE fietsen.id = 1;
 
-if ($_SERVER['REQUEST_METHOD'] == "POST")  {
-    print_r($_POST); 
+     // connect database
+     include "connect.php";
 
-    // doe update in de database
-    // UPDATE `fietsen` SET `prijs` = '700'
-    // WHERE `fietsen`.`ID` = 1;
-
-    
-    // connect database
-    include "connect.php";
-
-    // Maak een query
-    $sql = "
-           UPDATE `fietsen` SET 
-           merk = :merk,
-           type = :type,
-           prijs = :prijs,
-        WHERE id = :id";
-    // Prepare
-    $stmt = $conn->prepare($sql);
-    // Uitvoeren
-    $stmt->execute([
+     // Maak een query
+     $sql = " 
+        UPDATE fietsen SET 
+         merk = :merk, 
+         type = :type, 
+         prijs = :prijs
+     WHERE id = :id";
+     // Prepare
+     $stmt = $conn->prepare($sql);
+     // Uitvoeren
+     $status =  $stmt->execute([
         ':merk'=>$_POST['merk'],
         ':type'=>$_POST['type'],
         ':prijs'=>$_POST['prijs'],
-        ':id'=>$_POST['ID']
+            ':id'=>$_POST['id']
 
-    ]);
-if ($stmt->rowCount() == 1) {
-header("location: crud.php");
+     ]);
+
+     if ($status) {
+     header("Location: crud.php");
+        exit();
 } else {
     echo "Update is fout gegaan<br>";
-}
-}
-
+}}
 ?>
