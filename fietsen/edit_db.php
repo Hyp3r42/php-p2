@@ -31,6 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
      ]);
 
+     // test of insert gelukt is
+     if($stmt->rowCount() == 1){
+        echo "<script>alert('Fiets is gewijzigd')</script>";
+        echo "<script> location.replace('crud.php'); </script>";
+    } else {
+        echo '<script>alert("Fiets is NIET gewijzigd")</script>';
+     }
+
+
+
      if ($status) {
      header("Location: crud.php");
         exit();
