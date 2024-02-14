@@ -22,6 +22,11 @@ if (!$stmt->execute()) {
     exit();
 }
 
+// Add a row for the "Fiets toevoegen" button
+echo "<tr>";
+echo "<td colspan='4'><a href='add.php'>Fiets toevoegen</a></td>";
+echo "</tr>";
+
 // Ophalen alle data
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

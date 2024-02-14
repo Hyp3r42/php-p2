@@ -29,7 +29,7 @@ if($_SERVER ["REQUEST_METHOD"] == "POST") {
         // Test of insert gelukt is
         if($status == true){
             echo"<script>alert('Fiets is toegevoegd')</script>;
-            echo"<script> location.replace('crus.php');
+            echo"<script> location.replace('crud.php');
         } else {
             echo'<script>alert("Fiets is NIET toegevoegd")</script>';
         }
