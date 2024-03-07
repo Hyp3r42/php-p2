@@ -8,7 +8,7 @@
     <h2>Gebruiker Registreren</h2>
     <form action="" method="post">
         <div>
-            <label for="username">Gebruikersna:</label><br>
+            <label for="username">Gebruikersnaam:</label><br>
             <input type="text" name="username" required>
         </div>
         <div>

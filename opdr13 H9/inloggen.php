@@ -50,7 +50,7 @@ if (isset($_POST["inloggen"])) {
         }
     } catch (PDOException $e) {
         // Handle any database errors
-        die "Error!: " . $e->getMessage();
+        die ("Error!: " . $e->getMessage());
     }
 }
 ?>

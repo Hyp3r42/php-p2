@@ -12,4 +12,4 @@ $user = 'root';
 $pass = ''; // Lokale server zonder wachtwoord
 
 // Optioneel: Defineer een DSN (Data source Name) voor gemakkelijker in je PDO verbinding
-$dsn = "mysql:host=$hos;dbname=$dbname";
+$dsn = "mysql:host=$host;dbname=$dbname";
