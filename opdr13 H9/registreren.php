@@ -23,15 +23,15 @@
 
 <?php
 
-if (isset($_POST["registreer"])) {
-    include "config.php"; 
+if (isset($_POST['registreer'])) {
+    include 'config.php'; 
 
     try {
         // Create a new database connection
-        $conn = new PDO("mysql/host-Shostbane-bane", $user, $pass);
+        $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 
         // Prepare an SQL query for inserting a new user
-        $query = $conn->prepare("INSERT INTO gebruikers(username, password) VALUES(:username, :password)");
+        $query = $db->prepare("INSERT INTO gebruikers(username, password) VALUES(:username, :password)");
 
         // Sanitize the username and hash the password
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -48,7 +48,7 @@ if (isset($_POST["registreer"])) {
             echo "Er is een fout opgetreden bij het toevoegen van de nieuwe gebruiker.";
         }
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        echo ("Error!: " . $e->getMessage());
     }
 }
 ?>
