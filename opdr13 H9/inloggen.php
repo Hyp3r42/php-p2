@@ -35,7 +35,7 @@ if (isset($_POST["inloggen"])) {
             // Verify if the submitted password matches the hashed password in the database
             if (password_verify($password, $result["password"])) {
                 // Store the username in a session variable
-                $_SESSION['gebruikers'] = $username;
+                $_SESSION['gebruiker'] = $username;
 
                 // Redirect the user to the welcome page
                 header("Location: welkom.php");
