@@ -20,11 +20,11 @@ try {
     <h2>Wachtwoord wijzigen voor gebruiker</h2>
     <form action="verwerkingwachtwoord.php" method="post">
         <div>
-            <label for="username">Selecteer Gebruiker:</label><br>
+            <label for="username">Selecteer gebruikers:</label><br>
             <select id="username" name="username" required>
-                <?php foreach ($gebruikers as $gebruiker): ?>
-                    <option value="<?php echo htmlspecialchars($gebruiker["username"]); ?>">
-                        <?php echo htmlspecialchars($gebruiker["username"]); ?>
+                <?php foreach ($gebruikers as $gebruikers): ?>
+                    <option value="<?php echo htmlspecialchars($gebruikers["username"]); ?>">
+                        <?php echo htmlspecialchars($gebruikers["username"]); ?>
                     </option>
                 <?php endforeach; ?>
             </select>
