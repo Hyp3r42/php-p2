@@ -146,13 +146,13 @@ function printCrudbrouwer($result){
         
         // Wijzig knopje
         $table .= "<td>
-            <form method='post' action='update_brouwer.php?brouwercode=$row[brouwercode]' >       
+            <form method='post' action='update_brouwer.php?brouwercode=$row[brouwcode]' >       
                 <button>Wzg</button>	 
             </form></td>";
 
         // Delete knopje
         $table .= "<td>
-            <form method='post' action='delete_brouwer.php?brouwercode=$row[brouwercode]' >       
+            <form method='post' action='delete_brouwer.php?brouwercode=$row[brouwcode]' >       
                 <button>Verwijder</button>	 
             </form></td>";
 
