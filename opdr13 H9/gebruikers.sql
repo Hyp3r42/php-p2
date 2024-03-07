@@ -6,7 +6,7 @@
 -- Tabelstructuur voor tabel 'gebruikers'
 --
 
-CREATE TABLE 'gebrukkers' (
+CREATE TABLE 'gebruikers' (
     'id' int(5) NOT FULL,
     'username' varchar(255) NOT FULL,
     'password' varchar(255) NOT FULL

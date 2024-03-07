@@ -1,5 +1,4 @@
 <?php
-
 // Include the database configuration from an external file
 require 'config.php'; // Adjust the path if config.php is located elsewhere
 
@@ -13,13 +12,13 @@ if (isset($_POST["inloggen"])) {
         $db = new PDO($dsn, $user, $pass, $options);
 
         // Sanitize the username input to prevent XSS attacks
-        $username = filter_input (INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 
-        // Retrieve the password directly from the POST array
-        $password = $_POST['password'];
+        // Retrieve the password directly from the POST array and sanitize
+        $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 
         // Prepare a SQL query to search for the user by username
-        $query = $db->prepare ("SELECT * FROM gebruikers WHERE username = :user");
+        $query = $db->prepare("SELECT * FROM gebruikers WHERE username = :user");
 
         // Bind the submitted username to the query
         $query->bindParam(":user", $username, PDO::PARAM_STR);
@@ -28,18 +27,18 @@ if (isset($_POST["inloggen"])) {
         $query->execute();
 
         // Check if exactly one user was found
-        if($query->rowCount() == 1){
+        if ($query->rowCount() == 1) {
             // Retrieve the user data
             $result = $query->fetch();
 
             // Verify if the submitted password matches the hashed password in the database
             if (password_verify($password, $result["password"])) {
                 // Store the username in a session variable
-                $_SESSION['gebruiker'] = $username;
+                $_SESSION['gebruikers'] = $username;
 
                 // Redirect the user to the welcome page
                 header("Location: welkom.php");
-                exit();
+                exit(); // Ensure no further code execution after redirection
             } else {
                 // Display an error message if the password is incorrect
                 echo "Onjuiste gegevens";
@@ -50,7 +49,7 @@ if (isset($_POST["inloggen"])) {
         }
     } catch (PDOException $e) {
         // Handle any database errors
-        die ("Error!: " . $e->getMessage());
+        die("Error!: " . $e->getMessage());
     }
 }
 ?>
