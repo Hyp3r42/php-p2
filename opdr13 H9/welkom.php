@@ -2,13 +2,13 @@
 session_start(); // Start or resume the session
 
 // Check if the session variable for the user exists
-if (!isset($_SESSION['gebruiker'])) {
+if (!isset($_SESSION['gebruikers'])) {
     // If not, redirect to the login page
     header("Location: Inloggen.php");
     exit();
 }
 
-$gebruikersnaam = $S_SESSION['gebruiker']
+$gebruikersnaam = $_SESSION['gebruikers']
 ?>
 <!DOCTYPE html>
 <html lang="en">

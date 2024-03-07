@@ -18,7 +18,7 @@ if (isset($_POST["inloggen"])) {
         $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 
         // Prepare a SQL query to search for the user by username
-        $query = $db->prepare("SELECT * FROM gebruikers WHERE username = :user");
+        $query = $db->prepare("SELECT * FROM kolom WHERE username = :user");
 
         // Bind the submitted username to the query
         $query->bindParam(":user", $username, PDO::PARAM_STR);
@@ -63,9 +63,9 @@ if (isset($_POST["inloggen"])) {
 </head>
 <body>
     <h2>Inloggen</h2>
-    <form action="login.php" method="post">
+    <form action="#" method="post">
         <div>
-            <label for="username">Gebruikersnaam:</label>
+            <label for="username">kolomnaam:</label>
             <input type="text" id="username" name="username" required>
         </div>
         <div>

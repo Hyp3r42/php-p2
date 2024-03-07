@@ -3,8 +3,8 @@ require "config.php";
 session_start();
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    $query = $db->query("SELECT username FROM gebruikers");
-    $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $db->query("SELECT username FROM kolom");
+    $kolom = $query->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Error: " . $e->getMessage());
 }
@@ -17,13 +17,13 @@ try {
     <title>Wachtwoord wijzigen</title>
 </head>
 <body>
-    <h2>Wachtwoord wijzigen voor gebruiker</h2>
+    <h2>Wachtwoord wijzigen voor kolom</h2>
     <form action="verwerkingwachtwoord.php" method="post">
         <div>
-            <label for="username">Selecteer gebruiker:</label><br>
+            <label for="username">Selecteer kolom:</label><br>
             <select id="username" name="username" required>
-                <?php foreach ($gebruikers as $gebruiker): ?>
-                    <option value="<?= htmlspecialchars($gebruiker['username']); ?>"><?= htmlspecialchars($gebruiker['username'])?></option>
+                <?php foreach ($kolom as $kolom): ?>
+                    <option value="<?= htmlspecialchars($kolom['username']); ?>"><?= htmlspecialchars($kolom['username'])?></option>
                 <?php endforeach; ?>
             </select>
         </div>

@@ -2,13 +2,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gebruiker Toevoegen</title>
+    <title>kolom Toevoegen</title>
 </head>
 <body>
-    <h2>Gebruiker Registreren</h2>
-    <form action="" method="post">
+    <h2>kolom Registreren</h2>
+    <form action="#" method="post">
         <div>
-            <label for="username">Gebruikersnaam:</label><br>
+            <label for="username">kolomnaam:</label><br>
             <input type="text" name="username" required>
         </div>
         <div>
@@ -31,7 +31,7 @@ if (isset($_POST['registreer'])) {
         $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 
         // Prepare an SQL query for inserting a new user
-        $query = $db->prepare("INSERT INTO gebruikers(username, password) VALUES(:username, :password)");
+        $query = $db->prepare("INSERT INTO kolom(username, password) VALUES(:username, :password)");
 
         // Sanitize the username and hash the password
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -43,9 +43,9 @@ if (isset($_POST['registreer'])) {
 
         // Execute the query and check for success
         if ($query->execute()) {
-            echo "De nieuwe gebruiker is succesvol toegevoegd.";
+            echo "De nieuwe kolom is succesvol toegevoegd.";
         } else {
-            echo "Er is een fout opgetreden bij het toevoegen van de nieuwe gebruiker.";
+            echo "Er is een fout opgetreden bij het toevoegen van de nieuwe kolom.";
         }
     } catch (PDOException $e) {
         echo ("Error!: " . $e->getMessage());

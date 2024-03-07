@@ -3,9 +3,9 @@
 $host = 'localhost';
 
 // Database naam
-$dbname = 'fietsenmaker';
+$dbname = 'inlog';
 
-// Databse gebruikersnaam   
+// Databse kolomnaam   
 $user = 'root';
 
 // Databse wachtwoord
