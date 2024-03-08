@@ -18,7 +18,7 @@
     // Main
 
     // Aanroep functie 
-    getbrouwer();
+    crudbrouwer();
     ?>
 
 </body>
