@@ -3,7 +3,7 @@
 $host = 'localhost';
 
 // Database naam
-$dbname = 'inlog';
+$dbname = 'student_login';
 
 // Databse kolomnaam   
 $user = 'root';
