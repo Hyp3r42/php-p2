@@ -2,7 +2,7 @@
 // auteur: Wigmans
 // functie: configuratiebestand
 
-define("DATABASE", "bieren");
+define("DATABASE", "bier");
 define("SERVERNAME", "localhost");
 define("USERNAME", "root");
 define("PASSWORD", "");
