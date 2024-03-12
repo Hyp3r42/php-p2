@@ -222,6 +222,8 @@ function deletebrouwer($brouwcode){
 
     // Connect database
     $conn = connectDb();
+
+    // controleer of de brouwcode bestaat in de tabel brouwer
     
     // Maak een query 
     $sql = "
