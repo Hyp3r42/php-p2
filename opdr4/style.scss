@@ -1,0 +1,113 @@
+// Namespace voor stijlen
+$font-namespace: 'Arial', sans-serif;
+$background-namespace: #f2f2f2;
+$margin-namespace: 10px;
+
+// Variabelen
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$border-radius: 5px;
+
+// Geneste elementen en & gebruiken
+.container {
+  width: 100%;
+  padding: $margin-namespace;
+  
+  &__header {
+    background-color: $background-namespace;
+    font-family: $font-namespace;
+    border-radius: $border-radius;
+    
+    &--big {
+      font-size: 24px;
+    }
+    
+    &--small {
+      font-size: 16px;
+    }
+  }
+  
+  &__content {
+    margin-top: $margin-namespace;
+    border: 1px solid $primary-color;
+    
+    &:hover {
+      border-color: $secondary-color;
+    }
+  }
+}
+
+// Operations
+$base-font-size: 16px;
+
+p {
+  font-size: $base-font-size;
+  
+  &.large-text {
+    font-size: $base-font-size * 1.2; // Vergroot lettergrootte met 20%
+  }
+}
+
+// Media queries
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+// Extend
+%button-base {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: $border-radius;
+  font-family: $font-namespace;
+}
+
+.button {
+  @extend %button-base;
+  background-color: $primary-color;
+  color: white;
+  
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+// @if, @elseif, @else
+$condition: true;
+
+.element {
+  @if $condition == true {
+    color: $primary-color;
+  } @else if $condition == false {
+    color: $secondary-color;
+  } @else {
+    color: black;
+  }
+}
+
+// @for loop
+@for $i from 1 through 3 {
+  .item-#{$i} {
+    font-size: $base-font-size + $i * 2px;
+  }
+}
+
+// @each loop
+$icons: home, about, contact;
+
+@each $icon in $icons {
+  .icon-#{$icon} {
+    background-image: url('/assets/#{$icon}.png');
+  }
+}
+
+// @while loop
+$i: 1;
+
+@while $i < 5 {
+  .loop-#{$i} {
+    width: $i * 20px;
+  }
+  $i: $i + 1;
+}
