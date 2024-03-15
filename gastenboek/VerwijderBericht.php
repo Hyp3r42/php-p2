@@ -1,32 +1,28 @@
 <?php
-// database gegevens includen.
-include "connectpdo.php"
+include "connectpdo.php"; // Include database connection details
 
-// id ophalen
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    echo "ID: $id"; // Debugging statement to check if ID is set correctly
 
-if(isset($_GET['id']))
-{
-$id = $_GET['id'];
-echo "$id";
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        // Prepare and execute the delete statement
+        $sql = "DELETE FROM berichten WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error  mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // sql to delete a record
-    $sql = "DELETE FROM berichten WHERE id ='$id'";
+        echo "Record deleted successfully";
 
-    // use exec() because no results are returned
-    $conn->exec($sql);
-    echo "Record deleted successfully";
-    // terugsturen naar de hoofdpagina
-    header('Location: index.php');
+        // Redirect back to the main page
+        header('Location: index.php');
+        exit(); // Make sure to exit after header redirection
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
 }
- catch(PDOException $e)
-  {
-   // echo $sql . "<br>" . $e->getMessage();
-  }
-}
+
 $conn = null;
+?>
