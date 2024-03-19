@@ -1,41 +1,93 @@
+@import 'output.css';
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+}
+body header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+body header nav ul li {
+  display: inline;
+  margin-right: 1rem;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 1rem;
-}
-
-main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
+@media (max-width: 768px) {
+  header {
     padding: 20px;
+  }
+}
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+}
+.btn, .btn-primary {
+  padding: 10px;
+  border-radius: 5px;
 }
 
-section {
-    background-color: #f4f4f4;
-    padding: 20px;
+.btn-primary {
+  background: #333;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+.btn, .btn-primary {
+  background: #333;
 }
+
+.item-1 {
+  width: 100px;
+}
+
+.item-2 {
+  width: 200px;
+}
+
+.item-3 {
+  width: 300px;
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
+.blue-text {
+  color: blue;
+}
+
+.item-6 {
+  width: 300px;
+}
+
+.item-5 {
+  width: 250px;
+}
+
+.item-4 {
+  width: 200px;
+}
+
+.item-3 {
+  width: 150px;
+}
+
+.item-2 {
+  width: 100px;
+}
+
+.item-1 {
+  width: 50px;
+}
+
+/*# sourceMappingURL=output.css.map */

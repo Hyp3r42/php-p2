@@ -1,0 +1,106 @@
+// Variabelen
+$primary-color: #333;
+$background-color: #f4f4f4;
+$grid-gap: 20px;
+$padding: 20px;
+
+// Type variabelen
+$font-size: (
+  small: 12px,
+  medium: 16px,
+  large: 20px
+);
+
+// Operations
+$base-padding: 10px;
+$additional-padding: 5px;
+
+// Geneste elementen
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    header {
+        background-color: $primary-color;
+        color: #fff;
+        padding: 1rem;
+
+        nav {
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    display: inline;
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+}
+
+// @import
+@import 'output.css'; // import normalize.scss
+
+// @media voor mobiele en tabletversies
+@media (max-width: 768px) {
+    header {
+        padding: $base-padding * 2;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: $base-padding;
+    }
+}
+
+// @extend
+.btn {
+    padding: $base-padding;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    @extend .btn;
+    background: $primary-color;
+}
+
+// @if, @elseif, @else
+$is-primary: true;
+
+.btn {
+    @if $is-primary {
+        background: $primary-color;
+    } @else {
+        background: gray;
+    }
+}
+
+// @for
+@for $i from 1 through 3 {
+    .item-#{$i} {
+        width: 100px * $i;
+    }
+}
+
+// @each
+$colors: red, green, blue;
+
+@each $color in $colors {
+    .#{$color}-text {
+        color: $color;
+    }
+}
+
+// @while
+$i: 6;
+
+@while $i > 0 {
+    .item-#{$i} {
+        width: 50px * $i;
+    }
+    $i: $i - 1;
+}
