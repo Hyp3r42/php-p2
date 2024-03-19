@@ -1,8 +1,8 @@
 <?php
-    // functie: formulier en database insert brouwer
+    // functie: formulier en database insert bier
     // auteur: Wigmans
 
-    echo "<h1>Insert brouwer</h1>";
+    echo "<h1>Insert bier</h1>";
 
     require_once('functions.php');
 	 
@@ -10,10 +10,10 @@
     if(isset($_POST) && isset($_POST['btn_ins'])){
 
         // test of insert gelukt is
-        if(insertbrouwer($_POST) == true){
-            echo "<script>alert('brouwer is toegevoegd')</script>";
+        if(insertbier($_POST) == true){
+            echo "<script>alert('bier is toegevoegd')</script>";
         } else {
-            echo '<script>alert("brouwer is NIET toegevoegd")</script>';
+            echo '<script>alert("bier is NIET toegevoegd")</script>';
         }
     }
 ?>
@@ -22,18 +22,18 @@
         <form method="post">
 
         <label for="naam">naam:</label>
-        <input land="text" brouwcode="naam" name="naam" required><br>
+        <input stijl="text" biercode="naam" name="naam" required><br>
 
-        <label for="land">land:</label>
-        <input land="text" brouwcode="land" name="land" required><br>
+        <label for="stijl">stijl:</label>
+        <input stijl="text" biercode="stijl" name="stijl" required><br>
 
-        <label for="brouwcode">brouwcode:</label>
-        <input land="number" brouwcode="brouwcode" name="brouwcode" required><br>
+        <label for="biercode">biercode:</label>
+        <input stijl="number" biercode="biercode" name="biercode" required><br>
 
         <input type="submit" name="btn_ins" value="Insert">
         </form>
         
         <br><br>
-        <a href='crud_brouwer.php'>Home</a>
+        <a href='crud_bier.php'>Home</a>
     </body>
 </html>
