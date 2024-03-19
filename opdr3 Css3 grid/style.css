@@ -29,6 +29,7 @@ body header nav ul li {
     padding: 10px;
   }
 }
+
 .btn, .btn-primary {
   padding: 10px;
   border-radius: 5px;
@@ -89,5 +90,43 @@ body header nav ul li {
 .item-1 {
   width: 50px;
 }
+main {
+  padding: 20px;
+}
+main section {
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+main section h2 {
+  margin-top: 0;
+}
 
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+}
+
+/* Media queries voor responsive design */
+@media screen and (max-width: 768px) {
+  header {
+    text-align: center;
+  }
+  header nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+}
 /*# sourceMappingURL=output.css.map */
