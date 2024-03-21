@@ -3,6 +3,8 @@
         Naam: <input type="text" name="naam" id="naam"></input></br></br>
         Bericht: <textarea type="text" name="bericht" id="bericht"></textarea></br></br>
         <input type="submit" name="knop" id="knop">
+        <a href="login.php">log hier in</a><br>
+        <a href="edit_message.php">edit text</a>
     </form>
 
 
