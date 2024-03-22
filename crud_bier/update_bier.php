@@ -42,6 +42,10 @@
     <label for="stijl">stijl:</label>
     <input stijl="text" bier="stijl" name="stijl" required value="<?php echo $row['stijl']; ?>"><br>
 
+    
+    <label for="stijl">dropdown:</label>
+    <input stijl="text" bier="stijl" name="stijl" required value="<?php echo $row['dropdown']; ?>"><br>
+
     <label for="naam">naam:</label>
     <input type="number" bier="naam" name="naam" required value="<?php echo $row['naam']; ?>"><br>
 

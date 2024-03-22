@@ -1,8 +1,8 @@
 <?php
-    // functie: formulier en database insert bieren
-    // auteur: Jandro
+    // functie: formulier en database insert bier
+    // auteur: Wigmans
 
-    echo "<h1>Insert bieren</h1>";
+    echo "<h1>Insert bier</h1>";
 
     require_once('functions.php');
 	 
@@ -10,10 +10,10 @@
     if(isset($_POST) && isset($_POST['btn_ins'])){
 
         // test of insert gelukt is
-        if(insertbieren($_POST) == true){
-            echo "<script>alert('brouwer is toegevoegd')</script>";
+        if(insertbier($_POST) == true){
+            echo "<script>alert('bier is toegevoegd')</script>";
         } else {
-            echo '<script>alert("brouwer is NIET toegevoegd")</script>';
+            echo '<script>alert("bier is NIET toegevoegd")</script>';
         }
     }
 ?>
@@ -21,22 +21,26 @@
     <body>
         <form method="post">
 
-        <label for="type">Naam:</label>
-        <input type="text" id="type" name="naam" required><br>
+        <label for="naam">naam:</label>
+        <input stijl="text" biercode="naam" name="naam" required><br>
 
-        <label for="prijs">Soort:</label>
-        <input type="text" id="prijs" name="soort" required><br>
+        <label for="stijl">stijl:</label>
+        <input stijl="text" biercode="stijl" name="stijl" required><br>
 
-        <label for="type">Stijl:</label>
-        <input type="text" id="type" name="stijl" required><br>
+        <label for="soort">soort:</label>
+        <input stijl="text" biercode="soort" name="soort" required><br>
 
-        <label for="type">Alcohol:</label>
-        <input type="number" id="type" name="alcohol" required><br>
+        
+        <label for="alcohol">alcohol:</label>
+        <input stijl="text" biercode="alcohol" name="alcohol" required><br>
 
-       
+        <label for="biercode">brouwcode:</label>
+        <input stijl="number" biercode="biercode" name="biercode" required><br>
 
         <input type="submit" name="btn_ins" value="Insert">
         </form>
+        
+
         
         <br><br>
         <a href='crud_bier.php'>Home</a>

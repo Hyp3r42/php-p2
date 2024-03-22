@@ -1,13 +1,6 @@
 <?php
 require('config.php');
 
-// Controleer of de gebruiker al is ingelogd, zo ja, stuur ze door naar de startpagina
-session_start();
-if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    exit();
-}
-
 // Controleren of het inlogformulier is verzonden
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validatie van de ingediende gegevens

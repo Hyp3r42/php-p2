@@ -53,8 +53,9 @@ CREATE TABLE 'vraag_en_opties' (
 --
 
 INSERT INTO 'vraag_en_opties' ('id', 'vraag', 'antwoord1', 'antwoord2', 'antwoord3', 'antwoord3') VALUES
-(1, 'wat is uw favoriete kleur?', 'Rood', 'Groen', 'Blauw', 'Geel' )
-(2, 'wat is uw favoriete stad?', 'Rotterdam', 'Den Bosch', 'Groningen', 'Eindhoven' )
+(1, 'wat is uw favoriete kleur?', 'Rood', 'Groen', 'Blauw', 'Geel' ),
+(2, 'wat is uw favoriete stad?', 'Rotterdam', 'Den Bosch', 'Groningen', 'Eindhoven' );
+
 --
 -- Indexen voor geëxporteerde tabellen
 --
@@ -63,3 +64,31 @@ INSERT INTO 'vraag_en_opties' ('id', 'vraag', 'antwoord1', 'antwoord2', 'antwoor
 -- Indexen voor tabel 'poll'
 --
 ALTER TABLE 'poll'
+ ADD PRIMARY KEY ('id');
+
+-- 
+-- Indexen voor tabel 'vraag_en_opties'
+--
+ALTER TABLE 'vraag_en_opties'
+ ADD PRIMARY KEY ('id');
+
+--
+-- AUTO_INCREMENT voor geëxporteerde tabellen
+--
+
+--
+-- AUTO_INCREMENT voor een tabel 'poll'
+--
+ALTER TABLE 'vraag_en_opties'
+  MODIFY 'id' int(11) NOT FULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT voor een tabel 'vraag_en_opties'
+--
+ALTER TABLE 'vraag_en_opties'
+  MODIFY 'id' int(11) NOT FULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

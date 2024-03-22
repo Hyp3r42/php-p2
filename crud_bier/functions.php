@@ -170,26 +170,24 @@ function updatebier($row){
     $conn = connectDb();
 
     // Maak een query 
-    $sql = "UPDATE " . CRUD_TABLE .
-    " SET 
-        naam = :naam, 
-        stijl = :stijl, 
-        biercode = :biercode
-    WHERE biercode = :biercode
-    ";
+    $sql = "UPDATE " . CRUD_TABLE . "
+            SET 
+                naam = :naam, 
+                stijl = :stijl
+            WHERE biercode = :biercode";
 
     // Prepare query
     $stmt = $conn->prepare($sql);
+
     // Uitvoeren
     $stmt->execute([
-        ':naam'=>$row['naam'],
-        ':stijl'=>$row['stijl'],
-        ':biercode'=>$row['biercode'],
-        ':biercode'=>$row['biercode']
+        ':naam' => $row['naam'],
+        ':stijl' => $row['stijl'],
+        ':biercode' => $row['biercode']
     ]);
 
     // test of database actie is gelukt
-    $retVal = ($stmt->rowCount() == 1) ? true : false ;
+    $retVal = ($stmt->rowCount() == 1) ? true : false;
     return $retVal;
 }
 
@@ -203,7 +201,6 @@ function insertbier($post){
         VALUES (:naam, :stijl, :biercode) 
     ";
 
-    // Prepare query
     $stmt = $conn->prepare($sql);
     // Uitvoeren
     $stmt->execute([
@@ -213,32 +210,24 @@ function insertbier($post){
     ]);
 
     
-    // test of database actie is gelukt
     $retVal = ($stmt->rowCount() == 1) ? true : false ;
     return $retVal;  
 }
 
 function deletebier($biercode){
 
-    // Connect database
     $conn = connectDb();
     
-    // Maak een query 
     $sql = "
     DELETE FROM " . CRUD_TABLE . 
     " WHERE biercode = :biercode";
 
-    // Prepare query
     $stmt = $conn->prepare($sql);
 
-    // Uitvoeren
     $stmt->execute([
     ':biercode'=>$_GET['biercode']
     ]);
 
-    // test of database actie is gelukt
     $retVal = ($stmt->rowCount() == 1) ? true : false ;
     return $retVal;
 }
-
-?>
