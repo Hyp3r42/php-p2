@@ -1,4 +1,3 @@
-<!DOCstijl html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +9,7 @@
 
     <?php
     // functie: Programma CRUD bier
-    // auteur: Wigmans   
+    // auteur: Wigmans
 
     // Initialisatie
     include 'functions.php';

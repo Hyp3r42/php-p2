@@ -1,52 +1,88 @@
-<h1>Opdracht 6 hoofdstuk 9: gastenboek</h1>
-    <form method="post" action="">
-        Naam: <input type="text" name="naam" id="naam"></input></br></br>
-        Bericht: <textarea type="text" name="bericht" id="bericht"></textarea></br></br>
-        <input type="submit" name="knop" id="knop">
-        <a href="login.php">log hier in</a><br>
-        <a href="edit_message.php">edit text</a>
+<?php
+// index.php
+require('config.php');
+
+// Controleren of de gebruiker is ingelogd
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    // Als de gebruiker niet is ingelogd, stuur ze door naar inlogpagina
+    header("Location: login.php");
+    exit();
+}
+
+// Controleren of de gebruiker een admin is
+$is_admin = false;
+if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+    $is_admin = true;
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastenboek</title>
+</head>
+<body>
+    <h2>Gastenboek</h2>
+
+    <!-- Welkomstbericht voor de ingelogde gebruiker -->
+    <p>Welkom, <?php echo $_SESSION['username']; ?>!</p>
+
+    <!-- Voeg hier code toe om het gastenboek weer te geven-->
+    <?php
+    // Query om alle berichten op te halen, inclusief gebruikersnaam
+    $sql = "SELECT * FROM guestbook";
+    $result = $conn->query($sql);
+
+    // Controleer op fouten bij de query-uitvoering
+    if (!$result) {
+        die("Query mislukt: " . $conn->error);
+    }
+
+    // Controleer of er rijen zijn opgehaald
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "<p><strong>Gebruikersnaam:</strong> " . $row["username"] . "</p>";
+            echo "<p><strong>Bericht:</strong> " . $row["message"] . "</p>";
+
+            // Voeg buttons toe voor bewerken en verwijderen
+            if ($is_admin || ($_SESSION['user_id'] == $row['user_id'])){
+                echo "<form action='edit_message.php' method='get' style='display:inline;'>";
+                echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
+                echo "<button type='submit'>Bewerken</button>";
+                echo "</form>";
+
+                echo "<form action='delete_message.php' method='get' style='display:inline;'>";
+                echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
+                echo "<button type='submit'>Verwijderen</button>";
+                echo "</form>";
+            }
+            echo "<hr>";
+        }
+    } else {
+        echo "Geen berichten gevonden";
+    }
+    ?>
+
+    <br>
+
+    <form action="add_message.php" method="get">
+        <button type="submit">Nieuw bericht toevoegen</button>
     </form>
 
+    <br>
+
+    <form action="logout.php" method="get">
+        <button type="submit">Uitloggen</button>
+    </form>
 
     <?php
-    include "connectpdo.php";
-
-    try {
-        // INSERT query uitvoeren
-        $stmt = $conn->prepare("INSERT INTO berichten (naam, bericht, datumtijd) 
-        VALUES (:naam, :bericht, :datumtijd)");
-        $stmt->bindParam(':naam', $naam);
-        $stmt->bindParam(':bericht', $bericht);
-        $stmt->bindParam(':datumtijd', $datumtijd);
-
-        // insert rij
-        if (isset($_REQUEST['naam']))
-         {
-            $naam = $_POST['naam'];
-            $bericht = $_POST['bericht'];
-            $datumtijd = date('d-m-Y');
-            $stmt->execute();
-        
-        // terugsturen naar de hoofdpagina
-        header('Location: index.php');
-         }}
-         catch(PDOException $e)
-         {
-            echo "Error: " . $e->getMassage();
-         }
-
-         // Berichten ophalen
-         $sqlSelect = "SELECT * from berichten";
-         $data = $conn->query($sqlSelect);
-
-         foreach ($data as $row) {
-            echo $row ['id']." ";
-            echo $row ['datumtijd']." ";
-            echo $row ['naam']." ";
-            echo $row ['bericht']." ";
-        // echo "<a href='pdoupdate.php?id=$row[id]'>Bewerken</a>";
-        echo "<a href='VerwijderBericht.php?id=$row[id]'>Verwijderen</a>";
-        echo "</br>";
-         }
-         $conn = null;
+    if ($is_admin) {
+        echo "<br><a href='forgot_password.php'>Wachtwoord resetten</a>";
+    }
     ?>
+</body>
+</html>
