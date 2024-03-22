@@ -44,14 +44,14 @@ include_once "config.php";
  }
 
  // selecteer de rij van de opgeven biercode uit de table bier
- function getbier($biercode){
+ function getbier($biercodes){
     // Connect database
     $conn = connectDb();
 
     // Select data uit de opgegeven table methode prepare
     $sql = "SELECT * FROM " . CRUD_TABLE . " WHERE biercode = :biercode";
     $query = $conn->prepare($sql);
-    $query->execute([':biercode'=>$biercode]);
+    $query->execute([':biercode'=>$biercodes]);
     $result = $query->fetch();
 
     return $result;
