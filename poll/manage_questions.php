@@ -1,14 +1,15 @@
 <?php
-// Include the connect.php file to establish database connection
-include 'connect.php';
+include 'connect.php'; // Zorg dat je verbinding maakt met de database
 
-// Check if the form for adding a new question has been submitted
 if (isset($_POST['addQuestion'])) {
+    // Voeg nieuwe vraag toe
     $stmt = $conn->prepare("INSERT INTO vraag_en_opties (vraag, antwoord1, antwoord2, antwoord3, antwoord4) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$_POST['question'], $_POST['answer1'], $_POST['answer2'], $_POST['answer3'], $_POST['answer4']]);
     echo "Vraag toegevoegd.";
 }
+
 ?>
+
 <form action="manage_questions.php" method="post">
     Vraag: <input type="text" name="question" required><br/>
     Antwoord 1: <input type="text" name="answer1" required><br/>
@@ -25,10 +26,8 @@ $questions = $stmt->fetchAll();
 
 foreach ($questions as $question) {
     echo "Vraag:" . htmlspecialchars($question['vraag']) . "<br/>";
-
     // Toon antwoorden hier indien nodig
     echo "<li><a href='edit_question.php?id=" . $question['id'] . "'>Bewerk</a> | ";
     echo "<li><a href='delete_question.php?id=" . $question['id'] . "'>Verwijder</a><br><br/>";
-
 }
 ?><a href="index.php">Index.php</a>
