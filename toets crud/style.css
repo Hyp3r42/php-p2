@@ -1,12 +1,12 @@
 label{
     display: inline-block;
     background-color:#00ffff;
-    wbrouwerth: 10%;
+    wkroegth: 10%;
 }
 
 table, th, td {
     background-color: aquamarine;
-    border: 1px solbrouwer black;
+    border: 1px solkroeg black;
 }
 
 th{
