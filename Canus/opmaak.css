@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3e5f5; /* Light purple background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #4a148c; /* Dark purple */
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    background-color: #ffffff;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #e1bee7; /* Light purple border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+form input[type="submit"] {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8e24aa; /* Medium purple */
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #6a1b9a; /* Dark purple */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #ffffff;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #e1bee7; /* Light purple border */
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s;
+}
+
+ul li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul li a {
+    color: #8e24aa; /* Medium purple */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.message.success {
+    background-color: #e1bee7; /* Light purple */
+    color: #4a148c; /* Dark purple */
+}
+
+.message.error {
+    background-color: #ffcccb; /* Light red */
+    color: #b71c1c; /* Dark red */
+}
+
+h2 {
+    color: #4a148c; /* Dark purple */
+    margin-bottom: 15px;
+}
